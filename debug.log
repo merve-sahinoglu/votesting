@@ -1,0 +1,2 @@
+[1005/163906.217:ERROR:crash_report_database_win.cc(455)] unexpected header
+[1005/165452.622:ERROR:directory_reader_win.cc(43)] FindFirstFile: Sistem belirtilen yolu bulamýyor. (0x3)
