@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-
+import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private auth: AuthService,
     private router: Router,
-    // private toaster: ToastrService
+    private toaster: ToastrService
   ) {
     this.form = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.router
         .navigateByUrl('/app', { replaceUrl: true })
-        // .then(() => this.toaster.success('You signed in'));
+       .then(() => this.toaster.success('You signed in'));
     }
   }
 
