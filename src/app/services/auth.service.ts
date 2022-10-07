@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient, User } from '@supabase/supabase-js';
+import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -7,6 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   private supabase: SupabaseClient;
+  private currentUser:BehaviorSubject<boolean|User|any>= new BehaviorSubject(null);
 
   constructor() {
     this.supabase = createClient(
@@ -14,17 +16,38 @@ export class AuthService {
       environment.superbaseKey
     );
 
+    const user =this.supabase.auth.user();
+    if (user) {
+      this.currentUser.next(user);
+    }
+    else
+    {
+      this.currentUser.next(false);
+    }
+
     this.supabase.auth.onAuthStateChange((event, session) => {
       console.log('auth changed', event);
       console.log('auth changed', session);
+      if (session) {
+        this.currentUser.next(session.user);
+      }
+      else
+      {
+        this.currentUser.next(false);
+      }
     });
   }
-  
+
   createAccount({ email, password }: { email: string; password: string }) {
     return this.supabase.auth.signUp({ email, password });
   }
 
   login({ email, password }: { email: string; password: string }) {
     return this.supabase.auth.signIn({ email, password });
+  }
+
+  getCurrenUser()
+  {
+    return this.currentUser.asObservable();
   }
 }
