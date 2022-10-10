@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.router
         .navigateByUrl('/app', { replaceUrl: true })
-       .then(() => this.toaster.success('You signed in'));
+        .then(() => this.toaster.success('You signed in'));
     }
   }
 
