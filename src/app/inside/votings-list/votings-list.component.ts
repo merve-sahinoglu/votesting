@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Voting } from 'src/app/interfaces/votings';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-votings-list',
@@ -7,13 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VotingsListComponent implements OnInit {
 
-  constructor() { }
+  votings: Voting[] = [];
+
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit(): void {
+    this.loadVotings();
   }
 
-  startVoting(){
+  async loadVotings() {
+    this.votings = await this.dataService.getVotings();
+  }
 
+  async startVoting() {
+    const record = await this.dataService.startVoting();
+
+    if (!record.error && record.data?.length) {
+      this.router.navigateByUrl(`/app/${record.data[0].id}`);
+    }
   }
 
 }
