@@ -7,6 +7,8 @@ import { VotingsDetailsComponent } from './votings-details/votings-details.compo
 import { UiComponent } from './ui/ui.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+
 
 const routes: Routes = [
   {
@@ -36,6 +38,8 @@ const routes: Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
+    ReactiveFormsModule,
+    SweetAlert2Module.forRoot(),
   ],
   exports: [],
 })
