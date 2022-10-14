@@ -6,10 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { ToastrModule } from 'ngx-toastr';
+import { VotingComponent } from './voting/voting.component';
+import { NgChartsModule } from 'ng2-charts';
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    VotingComponent,
   ],
   imports: [
     BrowserModule,
@@ -17,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     ReactiveFormsModule,
     ToastrModule.forRoot(),
+    NgChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
