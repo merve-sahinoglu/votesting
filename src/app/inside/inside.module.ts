@@ -8,6 +8,7 @@ import { UiComponent } from './ui/ui.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { VotingComponent } from '../voting/voting.component';
 
 
 const routes: Routes = [
