@@ -27,6 +27,7 @@
     "chart.js": "^3.9.1",
     "ng-charts": "^1.0.0-alpha",
     "ng2-charts": "^4.0.1",
+    "ngx-bootstrap": "^9.0.0",
     "ngx-toastr": "^15.2.0",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.5.0",

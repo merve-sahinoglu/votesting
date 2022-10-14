@@ -8,8 +8,8 @@ import { UiComponent } from './ui/ui.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
-import { VotingComponent } from '../voting/voting.component';
-
+import { PopoverModule } from 'ngx-bootstrap/popover';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
 
 const routes: Routes = [
   {
@@ -41,6 +41,8 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     ReactiveFormsModule,
     SweetAlert2Module.forRoot(),
+    PopoverModule,
+    TooltipModule,
   ],
   exports: [],
 })

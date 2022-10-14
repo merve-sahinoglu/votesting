@@ -7,6 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { Voting } from 'src/app/interfaces/votings';
 import { Clipboard } from '@angular/cdk/clipboard';
 
+
 @Component({
   selector: 'app-votings-details',
   templateUrl: './votings-details.component.html',

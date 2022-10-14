@@ -9,7 +9,7 @@
     <div class="md:mt-0 md:col-span-2">
       <ng-template #copyUrlPopoverTemplate>
         <div class="flex">
-          <!-- <input #url (click)="copyUrlToClipboard(); url.select()" [tooltip]="'Click to Copy'"
+          <input #url (click)="copyUrlToClipboard(); url.select()" [tooltip]="'Click to Copy'"
                  [value]="getUrl()"
                  class="form-input border-indigo-400 rounded"
                  id="current-url" name="current-url" type="text"/>
@@ -24,10 +24,10 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"/>
             </svg>
-          </button> -->
+          </button>
         </div>
       </ng-template>
-      <!-- <button [outsideClick]="true" [popover]="copyUrlPopoverTemplate"
+      <button [outsideClick]="true" [popover]="copyUrlPopoverTemplate"
               class="bg-indigo-600 text-white rounded-full" placement="bottom" type="button">
         <svg class="h-6 w-6 m-2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
              xmlns="http://www.w3.org/2000/svg">
@@ -36,7 +36,7 @@
             stroke-linecap="round"
             stroke-linejoin="round"/>
         </svg>
-      </button> -->
+      </button>
     </div>
   </div>
   
